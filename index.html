@@ -1,0 +1,310 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Who man? Recipe Poster</title>  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">  <script>  
+    tailwind.config = {  
+        theme: {  
+            extend: {  
+                colors: {  
+                    'chili-red': '#D32F2F',  
+                    'chili-dark': '#B71C1C',  
+                    'paper': '#F9F7F2',  
+                    'charcoal': '#2D2D2D',  
+                    'ink': '#1a1a1a',  
+                    'burn': '#3E2723'  
+                },  
+                fontFamily: {  
+                    'display': ['"Abril Fatface"', 'cursive'],  
+                    'serif': ['"Playfair Display"', 'serif'],  
+                    'sans': ['"DM Sans"', 'sans-serif'],  
+                },  
+                backgroundImage: {  
+                    'paper-texture': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZjlmN2YyIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNlN2U1ZTAiLz4KPC9zdmc+')",  
+                }  
+            }  
+        }  
+    }  
+</script>  
+<style>  
+    body {  
+        background-color: #e5e5e5;  
+        -webkit-print-color-adjust: exact;  
+    }  
+    .poster-container {  
+        box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.25);  
+    }  
+    .check-box {  
+        appearance: none;  
+        width: 1.25em;  
+        height: 1.25em;  
+        border: 2px solid #D32F2F;  
+        border-radius: 4px;  
+        display: inline-grid;  
+        place-content: center;  
+        cursor: pointer;  
+        transition: all 0.2s ease;  
+    }  
+    .check-box::before {  
+        content: "\f00c";  
+        font-family: "Font Awesome 6 Free";  
+        font-weight: 900;  
+        font-size: 0.8em;  
+        color: white;  
+        transform: scale(0);  
+        transition: 0.1s transform ease-in-out;  
+    }  
+    .check-box:checked {  
+        background-color: #D32F2F;  
+    }  
+    .check-box:checked::before {  
+        transform: scale(1);  
+    }  
+    .check-box:checked + span {  
+        text-decoration: line-through;  
+        color: #9CA3AF;  
+    }  
+      
+    @media print {  
+        body {  
+            background-color: white;  
+        }  
+        .no-print {  
+            display: none;  
+        }  
+        .poster-container {  
+            box-shadow: none;  
+            margin: 0;  
+            width: 100%;  
+            max-width: 100%;  
+        }  
+    }  
+</style>
+
+</head>  
+<body class="min-h-screen py-8 flex flex-col items-center justify-center font-sans">  <!-- Controls -->  
+<div class="no-print fixed top-4 right-4 z-50 flex gap-2">  
+    <button onclick="window.print()" class="bg-charcoal text-white px-4 py-2 rounded-full shadow-lg hover:bg-chili-red transition-colors flex items-center gap-2 font-medium">  
+        <i class="fas fa-print"></i> Print / Save as PDF  
+    </button>  
+</div>  
+
+<!-- Main Poster / Recipe Card -->  
+<main class="poster-container bg-paper bg-paper-texture w-full max-w-4xl p-0 md:p-12 relative overflow-hidden mx-4 md:rounded-lg">  
+      
+    <!-- Decorative Border Elements -->  
+    <div class="absolute top-0 left-0 w-full h-2 bg-chili-red"></div>  
+    <div class="absolute bottom-0 left-0 w-full h-2 bg-chili-red"></div>  
+    <div class="hidden md:block absolute top-0 left-8 w-1 h-full bg-gray-200 border-l border-dashed border-gray-300"></div>  
+
+    <div class="relative z-10 p-6 md:p-0 md:pl-16">  
+          
+        <!-- Header Section -->  
+        <header class="mb-12 border-b-2 border-charcoal pb-8">  
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">  
+                <div>  
+                    <div class="uppercase tracking-widest text-chili-red font-bold text-sm mb-2 flex items-center gap-2">  
+                        <i class="fas fa-fire-alt"></i> Spicy Level: High  
+                    </div>  
+                    <h1 class="font-display text-5xl md:text-7xl text-charcoal leading-none mb-4">  
+                        Who man?  
+                        <span class="block text-3xl md:text-4xl text-chili-red font-serif italic mt-2">(With a Side of Chili)</span>  
+                    </h1>  
+                    <p class="font-serif text-xl text-gray-600 italic">"A meticulous and spicy recipe for getting things done."</p>  
+                </div>  
+                <div class="bg-charcoal text-white p-4 rounded-lg text-center min-w-[120px]">  
+                    <div class="text-3xl font-display">1</div>  
+                    <div class="text-xs uppercase tracking-wider opacity-80">Serving</div>  
+                    <div class="text-xs uppercase tracking-wider font-bold text-chili-red">Who Man</div>  
+                </div>  
+            </div>  
+        </header>  
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">  
+              
+            <!-- Ingredients Column -->  
+            <div class="md:col-span-4 space-y-8">  
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm relative rotate-1 hover:rotate-0 transition-transform duration-300">  
+                    <!-- Tape effect -->  
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-yellow-100 opacity-80 rotate-1 shadow-sm"></div>  
+                      
+                    <h2 class="font-display text-2xl text-charcoal mb-6 border-b-2 border-chili-red inline-block pb-1">Mise en Place</h2>  
+                      
+                    <ul class="space-y-4 font-serif text-lg text-charcoal">  
+                        <li class="flex items-start gap-3 group">  
+                            <label class="flex items-start gap-3 cursor-pointer">  
+                                <input type="checkbox" class="check-box mt-1.5">  
+                                <span>  
+                                    <strong>2 cups</strong> "Lock in."  
+                                    <br><span class="text-sm text-gray-500 font-sans italic">(Pure Focus)</span>  
+                                </span>  
+                            </label>  
+                        </li>  
+                        <li class="flex items-start gap-3 group">  
+                            <label class="flex items-start gap-3 cursor-pointer">  
+                                <input type="checkbox" class="check-box mt-1.5">  
+                                <span>  
+                                    <strong>1 tbsp</strong> "Who's gonna carry the boats!?"  
+                                    <br><span class="text-sm text-gray-500 font-sans italic">(Determination & Initiative)</span>  
+                                </span>  
+                            </label>  
+                        </li>  
+                        <li class="flex items-start gap-3 group">  
+                            <label class="flex items-start gap-3 cursor-pointer">  
+                                <input type="checkbox" class="check-box mt-1.5">  
+                                <span>  
+                                    <strong>3 scoops</strong> "What plan?"  
+                                    <div class="text-sm text-gray-500 font-sans italic mt-1 bg-gray-50 p-2 rounded border-l-2 border-chili-red">  
+                                        "Make the plan. Execute the plan. Expect the plan to go off the rails. Throw away the plan."  
+                                    </div>  
+                                </span>  
+                            </label>  
+                        </li>  
+                        <li class="flex items-start gap-3 group">  
+                            <label class="flex items-start gap-3 cursor-pointer">  
+                                <input type="checkbox" class="check-box mt-1.5">  
+                                <span>  
+                                    <strong>A dash</strong> "I'm sorry what?"  
+                                    <br><span class="text-sm text-gray-500 font-sans italic">(Curiosity)</span>  
+                                </span>  
+                            </label>  
+                        </li>  
+                        <li class="flex items-start gap-3 group">  
+                            <label class="flex items-start gap-3 cursor-pointer">  
+                                <input type="checkbox" class="check-box mt-1.5">  
+                                <span>  
+                                    <strong>To taste</strong> Patience  
+                                    <br><span class="text-sm text-gray-500 font-sans italic">(Depends on the mood)</span>  
+                                </span>  
+                            </label>  
+                        </li>  
+                        <li class="flex items-start gap-3 group">  
+                            <label class="flex items-start gap-3 cursor-pointer">  
+                                <input type="checkbox" class="check-box mt-1.5">  
+                                <span>  
+                                    <strong>A splash</strong> Playfulness  
+                                </span>  
+                            </label>  
+                        </li>  
+                    </ul>  
+                </div>  
+
+                <!-- Chef's Note -->  
+                <div class="bg-charcoal text-paper p-6 rounded-br-3xl">  
+                    <h3 class="font-bold uppercase tracking-widest text-chili-red mb-2 text-sm">Chef's Note</h3>  
+                    <p class="font-serif italic text-sm opacity-90">"You're not gonna get anything from just standing around."</p>  
+                </div>  
+            </div>  
+
+            <!-- Instructions Column -->  
+            <div class="md:col-span-8">  
+                <h2 class="font-display text-3xl text-charcoal mb-8 flex items-center gap-3">  
+                    <i class="fas fa-utensils text-chili-red text-xl"></i> Method  
+                </h2>  
+
+                <div class="space-y-8">  
+                      
+                    <!-- Step 1 -->  
+                    <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">1</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Preheat your mindset</h3>  
+                            <p class="text-gray-700 leading-relaxed">Heat and oil the pan. Decide exactly what you're aiming for and <span class="font-bold text-chili-dark">lock in</span>. Standing around yields zero results.</p>  
+                        </div>  
+                    </div>  
+
+                    <!-- Step 2 -->  
+                    <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">2</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Set up your workspace</h3>  
+                            <p class="text-gray-700 leading-relaxed">Mise en place: Ensure all tools are ready and within immediate reach. Eliminate distractions. Follow through with the plan, but be ready to adapt when it inevitably goes off the rails.</p>  
+                        </div>  
+                    </div>  
+
+                    <!-- Step 3 -->  
+                        <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">3</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Train regularly</h3>  
+                            <p class="text-gray-700 leading-relaxed">Mix the batter evenly. Work both the mind and the body. Consistency is key.</p>  
+                        </div>  
+                    </div>  
+
+                     <!-- Step 4 -->  
+                     <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">4</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Pour the batter</h3>  
+                            <p class="text-gray-700 leading-relaxed">Don't just stare at the mix. Pour it in the pan already. There is no perfect moment, take initiative.</p>  
+                        </div>  
+                    </div>  
+
+                    <!-- Step 5 -->  
+                    <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">5</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Break it down</h3>  
+                            <p class="text-gray-700 leading-relaxed">Watch closely and flip when ready. Analyze the problem, pick it apart, identify opportunities, and rebuild it in a way that benefits you.</p>  
+                        </div>  
+                    </div>  
+
+                     <!-- Step 6 -->  
+                     <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">6</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Stay disciplined</h3>  
+                            <p class="text-gray-700 leading-relaxed">Don't leave it unattended; it'll burn. Show up even when motivation decides to take a vacation.</p>  
+                        </div>  
+                    </div>  
+
+                    <!-- Step 7 -->  
+                    <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">7</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Check the flavor</h3>  
+                            <p class="text-gray-700 leading-relaxed">Taste and adjust. Review progress. There is no need to stick with a bad plan out of pure pride.</p>  
+                        </div>  
+                    </div>  
+
+                     <!-- Step 8 -->  
+                     <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-charcoal flex items-center justify-center font-display text-xl group-hover:bg-chili-red group-hover:text-white group-hover:border-chili-red transition-colors">8</div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Lighten it up</h3>  
+                            <p class="text-gray-700 leading-relaxed">Experiment with flavors. Joke around. You don't have to take everything so seriously.</p>  
+                        </div>  
+                    </div>  
+
+                     <!-- Step 9 -->  
+                     <div class="flex gap-4 group">  
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-charcoal text-white border-2 border-charcoal flex items-center justify-center font-display text-xl shadow-lg transform group-hover:scale-110 transition-transform"><i class="fas fa-flag-checkered"></i></div>  
+                        <div>  
+                            <h3 class="font-bold text-xl mb-1 font-display">Serve and enjoy</h3>  
+                            <p class="text-gray-700 leading-relaxed">Finish your dish knowing you played it smart and you're eating well.</p>  
+                        </div>  
+                    </div>  
+
+                </div>  
+            </div>  
+        </div>  
+
+        <footer class="mt-16 pt-8 border-t border-gray-300 flex justify-between items-center opacity-60">  
+            <div class="font-display text-2xl text-charcoal">WM</div>  
+            <div class="text-xs font-sans tracking-widest uppercase">© Who Man Kitchens</div>  
+        </footer>  
+    </div>  
+</main>
+
+</body>  
+</html>
+
+
+
+
+                              
